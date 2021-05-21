@@ -1,0 +1,23 @@
+name: Flat
+
+on:
+  push:
+    paths:
+      - .github/workflows/flat.yml # Only run a new workflow every time this file (flat.yaml) file changes
+  workflow_dispatch: # Required even though this is currently empty
+  schedule:
+    - cron: '0 7 * * *' # Run this workflow at 7AM daily
+
+jobs:
+  scheduled:
+    runs-on: ubuntu-latest
+    steps: # This workflow has 3 steps
+      # The first step is to check out the repository so it can read the files inside of it and do other operations
+      - name: Check out repo
+        uses: actions/checkout@v2
+      # The third step is a Flat Action step. We fetch the data in the http_url and save it as downloaded_filename
+      - name: Fetch data 
+        uses: githubocto/flat@v2
+        with:
+          http_url: https://api.vam.ac.uk/v2/objects/search?q=Octopus&page_size=100&response_format=csv # The data to fetch every 5 minutes
+          downloaded_filename: vanda-octopuses.csv # The http_url gets saved and renamed in our repository 
