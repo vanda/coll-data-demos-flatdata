@@ -11,13 +11,13 @@ archiveCounts = {}
 with open('collection-stats.json') as json_file:
     data = json.load(json_file)
     museumCount = data['objects']
-    archivesCounts = data['archives']
+    archiveCounts = data['archives']
 
 # Read in existing CSV
 
-today = datetime.now().strftime("%d-%b-%Y")
-
-file_date = datetime.now().strftime("%b-%Y")
+now = datetime.now()
+today = now.strftime("%d-%b-%Y")
+file_date = now.strftime("%b-%Y")
 
 # Handle Museum Stats
 current_filename = f"museum-stats-{file_date}.csv"
@@ -35,8 +35,8 @@ if stats_csv.is_file():
 
 # Append todays date
 
-month_data.append([today, 'records', museumCount['records']])
-month_data.append([today, 'images', museumCount['images']])
+month_data.append([now.year,now.month,now.day, 'records', museumCount['records']])
+month_data.append([now.year,now.month,now.day, 'images', museumCount['images']])
 
 # Write the file out
 
@@ -62,8 +62,8 @@ if stats_csv.is_file():
 
 # Append todays date
 
-month_data.append([today, 'records', archiveCount['records']])
-month_data.append([today, 'images', archiveCount['images']])
+month_data.append([now.year,now.month,now.day, 'records', archiveCount['records']])
+month_data.append([now.year,now.month,now.day, 'images', archiveCount['images']])
 
 # Write the file out
 
