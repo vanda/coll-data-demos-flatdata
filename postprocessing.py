@@ -42,5 +42,5 @@ for institution in ('museum', 'archive'):
 
    with open(current_filename, "w") as csv_file:
      csvwriter = csv.writer(csv_file)
-     for row in month_data:
+     for row in year_data:
         csvwriter.writerow(row)
