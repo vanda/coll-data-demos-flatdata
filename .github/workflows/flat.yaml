@@ -21,6 +21,7 @@ jobs:
         with:
           http_url: https://api.vam.ac.uk/v2/objects/search?q=Octopus&page_size=100&response_format=csv # The data to fetch every 5 minutes
           downloaded_filename: vanda-octopuses.csv # The http_url gets saved and renamed in our repository 
+  stats:
     runs-on: ubuntu-latest
     steps: # This workflow has 3 steps
       # The first step is to check out the repository so it can read the files inside of it and do other operations
@@ -31,4 +32,4 @@ jobs:
         uses: githubocto/flat@v2
         with:
           http_url: https://api.vam.ac.uk/v1/stats/summary # The data to fetch every 5 minutes
-          downloaded_filename: collection-stats.json # The http_url gets saved and renamed in our repository 
+          downloaded_filename: vanda-collection-stats.json # The http_url gets saved and renamed in our repository 
