@@ -40,7 +40,7 @@ month_data.append([today, 'images', museumCount['images']])
 
 # Write the file out
 
-with open(current_filename) as csv_file:
+with open(current_filename, "w") as csv_file:
     csvwriter = csv.writer(csv_file)
     for row in month_data:
         csvwriter.writerow(row)
@@ -67,7 +67,7 @@ month_data.append([today, 'images', archiveCount['images']])
 
 # Write the file out
 
-with open(current_filename) as csv_file:
+with open(current_filename, "w") as csv_file:
     csvwriter = csv.writer(csv_file)
     for row in month_data:
         csvwriter.writerow(row)
