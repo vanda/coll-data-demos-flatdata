@@ -34,5 +34,5 @@ jobs:
         uses: githubocto/flat@v2
         with:
           http_url: https://api.vam.ac.uk/v1/stats/summary # The data to fetch every 5 minutes
-          downloaded_filename: vanda-collection-stats.json # The http_url gets saved and renamed in our repository 
+          downloaded_filename: collection-stats.json # The http_url gets saved and renamed in our repository 
           postprocess: postprocess.ts
